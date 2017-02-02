@@ -508,6 +508,7 @@ static void handle_event(auparse_state_t *au,
 
 				if (auparse_find_field(au, "ppid"))
 					cef_msg.attr = cef_add_attr(cef_msg.attr, "cs5Label=ParentProcess cs5=", get_proc_name(auparse_get_field_int(au)));
+				        cef_msg.attr = cef_add_attr(cef_msg.attr, "ppid=", auparse_get_field_str(au));
 				goto_record_type(au, type);
 
 				if (auparse_find_field(au, "auid")) {
